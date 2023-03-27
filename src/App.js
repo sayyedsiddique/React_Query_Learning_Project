@@ -1,19 +1,22 @@
-import {
-  QueryClient,
-  QueryClientProvider,
-} from 'react-query'
+import { QueryClient, QueryClientProvider } from "react-query";
+import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 
-import './App.css';
+import "./App.css";
+import Home from "./Pages/Home/Home";
 
 function App() {
   // Create a client
-const queryClient = new QueryClient()
+  const queryClient = new QueryClient();
 
   return (
     <div className="App">
       <QueryClientProvider client={queryClient}>
-      <div>Hello, React Query</div>
-    </QueryClientProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </BrowserRouter>
+      </QueryClientProvider>
     </div>
   );
 }
